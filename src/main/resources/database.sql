@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS user_roles(
 
 
 --Insert
-INSERT INTO users(username,password) VALUES ('proselyte', '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG');
+INSERT INTO users(username,password) VALUES ('artemenko', '$2a$11$uSXS6rLJ91WjgOHhEGDx..VGs7MkKZV68Lv5r1uwFu7HgtRn3dcXG');
 
 INSERT INTO roles(name) VALUES ('ROLE_USER');
 INSERT INTO roles(name) VALUES ('ROLE_ADMIN');

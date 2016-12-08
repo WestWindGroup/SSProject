@@ -36,6 +36,7 @@ public class UserController {
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
+
         return "registration";
     }
 
@@ -46,7 +47,9 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "registration";
         }
+
         userService.save(userForm);
+
         securityService.autoLogin(userForm.getUsername(), userForm.getConfirmPassword());
 
         return "redirect:/welcome";
@@ -61,6 +64,7 @@ public class UserController {
         if (logout != null) {
             model.addAttribute("message", "Logged out successfully.");
         }
+
         return "login";
     }
 

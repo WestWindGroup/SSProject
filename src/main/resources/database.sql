@@ -1,20 +1,23 @@
+
+CREATE SEQUENCE auto_id_users;
 --Table: users
-CREATE TABLE IF NOT EXISTS users (
-  id       SERIAL PRIMARY KEY,
+CREATE TABLE users (
+  id       INTEGER NOT NULL UNIQUE DEFAULT nextval('auto_id_users'),
   username VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL
 );
 
+CREATE SEQUENCE auto_id_roles;
 --Table: roles
-CREATE TABLE IF NOT EXISTS roles (
-  id   SERIAL PRIMARY KEY,
+CREATE TABLE roles (
+  id   INTEGER NOT NULL UNIQUE DEFAULT nextval('auto_id_roles'),
   name VARCHAR(100) NOT NULL
 );
 
 --Table for mapping user and roles : user_roles
-CREATE TABLE IF NOT EXISTS user_roles(
-  user_id INT NOT NULL,
-  role_id INT NOT NULL,
+CREATE TABLE user_roles(
+  user_id INTEGER NOT NULL,
+  role_id INTEGER NOT NULL,
 
   FOREIGN KEY (user_id) REFERENCES users(id),
   FOREIGN KEY (role_id) REFERENCES roles(id),
